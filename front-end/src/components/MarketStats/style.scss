@@ -1,0 +1,43 @@
+.market-stats {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1.5rem;
+  margin-bottom: 2rem;
+  animation: fade-in 0.5s ease-in-out;
+
+  @media (max-width: 768px) {
+    grid-template-columns: repeat(1, minmax(0, 1fr));
+  }
+
+  .glass-card {
+    padding: 1.5rem;
+    border-radius: 1rem;
+
+    h3,span {
+      font-size: 0.875rem;
+    }
+
+    p {
+      font-size: 1.5rem;
+      font-weight: 600;
+      margin-top: 0.5rem;
+    }
+
+    span {
+      display: flex;
+      align-items: center;
+      gap: 0.25rem;
+    }
+
+    div {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+
+      h3 {
+        color: var(--muted-foreground);
+        font-weight: 500;
+      }
+    }
+  }
+}
