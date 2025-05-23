@@ -5,12 +5,7 @@ export const useMarketDataChange = () => {
   return useQuery({
     queryKey: ['market-cap-volume-change'],
     queryFn: async () => {
-      const { data } = await api.get('/coins/bitcoin/market_chart', {
-        params: {
-          vs_currency: 'usd',
-          days: 1,
-        },
-      });
+      const { data } = await api.get('/bitcoin/market_chart');
 
       // Market cap data
       const marketCapChart = data.market_caps;
