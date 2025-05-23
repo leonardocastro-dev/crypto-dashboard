@@ -8,6 +8,7 @@ router.get('/global', async (req, res) => {
     const data = await getGlobalData();
     res.json(data);
   } catch (error) {
+    console.error('Error fetching global data:', error);
     res.status(500).json({ error: 'Failed to fetch global data' });
   }
 });
@@ -19,6 +20,7 @@ router.get('/:coinId/market_chart', async (req, res) => {
     const data = await getMarketChartByCoin(coinId);
     res.json(data);
   } catch (error) {
+    console.error('Error fetching market chart data:', error);
     res.status(500).json({ error: 'Failed to fetch market chart data' });
   }
 });
