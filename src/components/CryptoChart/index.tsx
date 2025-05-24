@@ -1,5 +1,5 @@
-import "./styles.scss";
-import TradingViewWidget from "../TradingViewWidget";
+import './styles.scss'
+import TradingViewWidget from '../TradingViewWidget'
 
 const CryptoChart = () => {
   return (
@@ -11,7 +11,7 @@ const CryptoChart = () => {
         <TradingViewWidget />
       </div>
     </div>
-  );
-};
+  )
+}
 
-export default CryptoChart;
+export default CryptoChart

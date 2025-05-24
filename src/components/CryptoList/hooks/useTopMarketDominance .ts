@@ -1,16 +1,16 @@
-import { useQuery } from '@tanstack/react-query';
-import { api } from '../../../../services/api';
-import type { CoinTicker } from '../../../../types';
+import { useQuery } from '@tanstack/react-query'
+import { api } from '../../../services/api'
+import type { CoinTicker } from '../../../types'
 
 export interface CryptoDominance {
-  id: string;
-  name: string;
-  symbol: string;
-  image: string;
-  price: number;
-  priceChange24h: number;
-  volume24h: number;
-  dominance: number;
+  id: string
+  name: string
+  symbol: string
+  image: string
+  price: number
+  priceChange24h: number
+  volume24h: number
+  dominance: number
 }
 
 export const useTopMarketDominance = () => {
@@ -19,10 +19,10 @@ export const useTopMarketDominance = () => {
     queryFn: async () => {
       const [globalRes, tickersRes] = await Promise.all([
         api.get('/global'),
-        api.get('/tickers'),
-      ]);
+        api.get('/tickers')
+      ])
 
-      const globalMarketCap = globalRes.data.market_cap_usd;
+      const globalMarketCap = globalRes.data.market_cap_usd
 
       const sortedTickers = tickersRes.data
         .filter((t: CoinTicker) => t.rank && t.quotes?.USD?.market_cap)
@@ -30,11 +30,11 @@ export const useTopMarketDominance = () => {
           (a: CoinTicker, b: CoinTicker) =>
             b.quotes.USD.market_cap - a.quotes.USD.market_cap
         )
-        .slice(0, 5);
+        .slice(0, 5)
 
       return sortedTickers.map((t: CoinTicker) => {
-        const marketCap = t.quotes.USD.market_cap;
-        const dominance = (marketCap / globalMarketCap) * 100;
+        const marketCap = t.quotes.USD.market_cap
+        const dominance = (marketCap / globalMarketCap) * 100
 
         return {
           id: t.id,
@@ -44,11 +44,11 @@ export const useTopMarketDominance = () => {
           price: t.quotes.USD.price,
           priceChange24h: t.quotes.USD.percent_change_24h,
           volume24h: t.quotes.USD.volume_24h,
-          dominance: dominance,
-        };
-      });
+          dominance: dominance
+        }
+      })
     },
     refetchOnWindowFocus: false,
-    retry: false,
-  });
-};
+    retry: false
+  })
+}

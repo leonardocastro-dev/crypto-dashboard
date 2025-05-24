@@ -18,11 +18,11 @@
 
       thead {
         tr {
-        text-align: left;
-        font-size: 0.875rem;
-        color: var(--muted-foreground);
+          text-align: left;
+          font-size: 0.875rem;
+          color: var(--muted-foreground);
 
-        th {
+          th {
             padding-bottom: 0.5rem;
           }
         }
@@ -65,4 +65,3 @@
     }
   }
 }
-

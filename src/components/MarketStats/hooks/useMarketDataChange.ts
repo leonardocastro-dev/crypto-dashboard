@@ -1,20 +1,20 @@
-import { useQuery } from '@tanstack/react-query';
-import { api } from '../../../../services/api';
+import { useQuery } from '@tanstack/react-query'
+import { api } from '../../../services/api'
 
 export const useMarketDataChange = () => {
   return useQuery({
     queryKey: ['market-data-change'],
     queryFn: async () => {
-      const globalRes = await api.get('/global');
-      const global = globalRes.data;
+      const globalRes = await api.get('/global')
+      const global = globalRes.data
 
-      const marketCapTotal = global.market_cap_usd;
-      const marketCapATH = global.market_cap_ath_value;
-      const marketCapATHDate = global.market_cap_ath_date;
+      const marketCapTotal = global.market_cap_usd
+      const marketCapATH = global.market_cap_ath_value
+      const marketCapATHDate = global.market_cap_ath_date
 
-      const marketCapChangePercent = global.market_cap_change_24h;
+      const marketCapChangePercent = global.market_cap_change_24h
 
-      const athChangePercent = ((marketCapTotal / marketCapATH) * 100) - 100;
+      const athChangePercent = (marketCapTotal / marketCapATH) * 100 - 100
 
       return {
         // Market Cap
@@ -31,10 +31,10 @@ export const useMarketDataChange = () => {
         marketCapATH,
         marketCapATHDate,
         athChangePercent,
-        isATHUp: athChangePercent >= 0,
-      };
+        isATHUp: athChangePercent >= 0
+      }
     },
     refetchOnWindowFocus: false,
-    retry: false,
-  });
-};
+    retry: false
+  })
+}
