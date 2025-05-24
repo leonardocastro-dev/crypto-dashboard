@@ -1,0 +1,68 @@
+.container {
+  border-radius: 1rem;
+  padding: 1.5rem;
+  animation: fade-in 0.5s ease-in-out;
+
+  h2 {
+    font-size: 1.5rem;
+    font-weight: 600;
+    margin-bottom: 1rem;
+  }
+
+  .table-container {
+    overflow-x: auto;
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+
+      thead {
+        tr {
+        text-align: left;
+        font-size: 0.875rem;
+        color: var(--muted-foreground);
+
+        th {
+            padding-bottom: 0.5rem;
+          }
+        }
+      }
+
+      tbody {
+        tr {
+          td {
+            padding: 0.5rem 0;
+            border-top: 1px solid var(--secondary);
+            .coin {
+              display: flex;
+              align-items: center;
+              gap: 0.5rem;
+
+              &-name {
+                font-weight: 500;
+              }
+
+              &-symbol {
+                font-size: 0.875rem;
+                font-weight: 400;
+                color: var(--muted-foreground);
+              }
+              img {
+                width: 32px;
+                height: 32px;
+                border-radius: 50%;
+              }
+            }
+
+            span {
+              display: flex;
+              align-items: center;
+              gap: 0.5rem;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
